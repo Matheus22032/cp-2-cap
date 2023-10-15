@@ -57,4 +57,15 @@ public class Cliente {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpfCnpj='" + cpfCnpj + '\'' +
+                ", numeroConta=" + numeroConta +
+                ", tipoConta='" + tipoConta + '\'' +
+                ", saldo=" + saldo +
+                '}';
+    }
 }

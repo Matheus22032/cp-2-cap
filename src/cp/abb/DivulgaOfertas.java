@@ -21,6 +21,7 @@ public class DivulgaOfertas {
          */
         ABB arvoreFisica = new ABB();
         ABB arvoreJuridica = new ABB();
+
         int opcao, op, numeroConta;
         String nome, cpfCnpj;
         String tipoConta = null;
@@ -58,9 +59,9 @@ public class DivulgaOfertas {
                     saldo = le.nextDouble();
                     Cliente cliente = new Cliente(nome, cpfCnpj, numeroConta, tipoConta, saldo);
                     if(tipoConta.equals("Física")){
-                        arvoreFisica.inserir(arvoreFisica.root, cliente);
+                        arvoreFisica.root = arvoreFisica.inserir(arvoreFisica.root, cliente);
                     }else{
-                        arvoreJuridica.inserir(arvoreJuridica.root, cliente);
+                        arvoreJuridica.root = arvoreJuridica.inserir(arvoreJuridica.root, cliente);
                     }
                     /*
                      * Intancia um objeto da classe Cliente e insere na ABB correspondente
@@ -92,6 +93,13 @@ public class DivulgaOfertas {
                      * Nesse trecho de programa que tentar fazer o contato com todos os
                      * clientes presente na lista.
                      */
+                    if (tipoConta.equals("Física")) {
+                        System.out.println("Clientes que aceitaram a oferta");
+                        System.out.println(arvoreFisica.buscar(arvoreFisica.root, saldo));
+                    } else {
+                        System.out.println("Clientes que aceitaram a oferta");
+                        System.out.println(arvoreJuridica.buscar(arvoreJuridica.root, saldo));
+                    }
                     break;
                 case 3:
                     /*
